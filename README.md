@@ -390,8 +390,8 @@ If you find this project useful, please consider giving it a ⭐ star!
 
 ## 📧 Contact
 
-- **GitHub**: [Create an Issue](https://github.com/dorwaladitya/voice-command-ai/issues)
-- **Project Link**: [https://github.com/dorwaladitya/voice-command-ai](https://github.com/dorwaladitya/voice-command-ai)
+- **GitHub**: [Create an Issue](https://github.com/adityadorwal/INTENT-OS/issues)
+- **Project Link**: [https://github.com/dorwaladitya/voice-command-ai](https://github.com/adityadorwal/INTENT-OS)
 
 ---
 
@@ -419,6 +419,6 @@ If you find this project useful, please consider giving it a ⭐ star!
 
 **Made with ❤️ and lots of ☕**
 
-[Report Bug](https://github.com/yourusername/voice-command-ai/issues) · [Request Feature](https://github.com/yourusername/voice-command-ai/issues) · [Documentation](https://github.com/yourusername/voice-command-ai/wiki)
+[Report Bug](https://github.com/adityadorwal/INTENT-OS/issues) · [Request Feature](https://github.com/adityadorwal/INTENT-OS/issues) · [Documentation](https://github.com/adityadorwal/INTENT-OS/wiki)
 
 </div>
