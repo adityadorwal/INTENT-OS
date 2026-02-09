@@ -1,0 +1,9 @@
+{
+    "api_keys": {
+        "groq": "your-groq-api-key-here"
+    },
+    "api_priority": [
+        "groq"
+    ],
+    "timeout_seconds": 30
+}

@@ -1,0 +1,12 @@
+{
+    "chrome_profiles": {
+        "whatsapp_profile": "Path will be set during setup",
+        "chatgpt_profile": "Path will be set during setup",
+        "whatsapp_url": "https://web.whatsapp.com/"
+    },
+    "form_filler": {
+        "profile_path": "Path will be set during setup",
+        "debug_port": 9222
+    },
+    "timestamp": "Will be set during setup"
+}

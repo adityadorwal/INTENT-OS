@@ -1,0 +1,28 @@
+{
+    "api_keys": {
+        "gemini": "ENV:GEMINI_API_KEY",
+        "groq": "ENV:GROQ_API_KEY",
+        "deepseek": "ENV:DEEPSEEK_API_KEY",
+        "huggingface": "ENV:HUGGINGFACE_API_KEY",
+        "cohere": "ENV:COHERE_API_KEY",
+        "mistral": "ENV:MISTRAL_API_KEY"
+    },
+    "api_priority": [
+        "groq",
+        "gemini",
+        "deepseek",
+        "huggingface",
+        "cohere",
+        "mistral"
+    ],
+    "retry_attempts": 3,
+    "timeout_seconds": 30,
+    "features": {
+        "voice_recognition": true,
+        "observer_tracking": true,
+        "whatsapp_automation": true,
+        "form_filling": true,
+        "notifications": true,
+        "audio_feedback": true
+    }
+}

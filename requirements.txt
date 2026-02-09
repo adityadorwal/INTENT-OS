@@ -1,0 +1,38 @@
+# Voice Command Background App - Complete Dependencies
+
+# GUI Framework
+PyQt5==5.15.9
+
+# Online Speech Recognition (Google)
+SpeechRecognition==3.10.0
+pyaudio==0.2.13
+
+# Web Automation (WhatsApp, Forms, etc.)
+selenium==4.15.2
+webdriver-manager==4.0.1
+
+# Process Management
+psutil==5.9.6
+
+# AI APIs
+google-generativeai==0.3.1
+groq==0.4.1
+requests==2.31.0
+
+# Observer Dashboard
+flask==3.0.0
+
+# Configuration
+python-dotenv==1.0.0
+
+# Phase 4: Notifications and Audio Feedback
+# Cross-platform desktop notifications
+win10toast==0.9; sys_platform == 'win32'
+pync==2.0.3; sys_platform == 'darwin'
+plyer==2.1.0
+
+# Text-to-Speech (optional for audio feedback)
+pyttsx3==2.90
+
+# Optional but recommended
+colorama==0.4.6
