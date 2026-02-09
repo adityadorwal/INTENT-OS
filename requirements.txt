@@ -5,7 +5,10 @@ PyQt5==5.15.9
 
 # Online Speech Recognition (Google)
 SpeechRecognition==3.10.0
-pyaudio==0.2.13
+
+# Audio input backend (version not pinned to allow platform compatibility)
+pyaudio
+
 
 # Web Automation (WhatsApp, Forms, etc.)
 selenium==4.15.2
