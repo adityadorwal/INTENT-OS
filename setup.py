@@ -10,6 +10,7 @@ import json
 import time
 import subprocess
 from pathlib import Path
+import importlib
 
 class Colors:
     """ANSI color codes for terminal output"""
@@ -74,14 +75,14 @@ def check_dependencies():
     ]
     
     missing = []
-    
     for package in required_packages:
         try:
-            __import__(package.replace('.', '_').replace('-', '_'))
+            importlib.import_module(package)
             print_success(f"{package}")
         except ImportError:
             print_error(f"{package} - NOT INSTALLED")
             missing.append(package)
+
     
     if missing:
         print_warning("\nMissing packages detected!")
