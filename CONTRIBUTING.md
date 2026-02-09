@@ -87,11 +87,11 @@ Ready to contribute code? Great! Follow these steps:
 ### 1. Fork and Clone
 ```bash
 # Fork the repo on GitHub, then clone your fork
-git clone https://github.com/YOUR_USERNAME/voice-command-ai.git
+git clone https://github.com/adityadorwal/INTENT-OS.git
 cd voice-command-ai
 
 # Add upstream remote
-git remote add upstream https://github.com/ORIGINAL_OWNER/voice-command-ai.git
+git remote add upstream https://github.com/adityadorwal/INTENT-OS.git
 ```
 
 ### 2. Create Virtual Environment
