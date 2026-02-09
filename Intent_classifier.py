@@ -138,6 +138,14 @@ class IntentClassifier:
         prompt = f"""Analyze and classify this command:
 "{command}"
 
+LANGUAGE NORMALIZATION RULE:
+- The user command may be in any language (including mixed languages).
+- FIRST, internally normalize the meaning of the command into clear English.
+- DO NOT return the translated command.
+- DO NOT explain the translation.
+- Use the normalized English meaning ONLY for intent classification.
+
+
 Categories & Actions:
 • messaging: send_message, open_chat
 • web: search, play_youtube, open_website, play_spotify
