@@ -50,8 +50,8 @@
 
 1. **Clone or Download** the repository:
 ```bash
-   git clone https://github.com/yourusername/voice-command-ai.git
-   cd voice-command-ai
+   git clone https://github.com/adityadorwal/INTENT-OS.git
+   cd INTENT-OS
 ```
 
 2. **Install Dependencies**:
