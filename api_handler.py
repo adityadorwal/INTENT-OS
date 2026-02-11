@@ -132,14 +132,26 @@ class APIHandler:
             }]
         }
         
-        response = requests.post(url, headers=headers, json=data, timeout=self.timeout)
-        response.raise_for_status()
-        result = response.json()
-        return {
-            "success": True,
-            "response": result['candidates'][0]['content']['parts'][0]['text'],
-            "provider": "gemini"
-        }
+        try:
+            response = requests.post(url, headers=headers, json=data, timeout=self.timeout)
+            response.raise_for_status()
+            result = response.json()
+            return {
+                "success": True,
+                "response": result['candidates'][0]['content']['parts'][0]['text'],
+                "provider": "gemini"
+            }
+        except requests.exceptions.HTTPError as e:
+            # Add detailed error logging for debugging
+            error_detail = ""
+            if hasattr(e, 'response') and e.response is not None:
+                try:
+                    error_json = e.response.json()
+                    error_detail = f"\n[ERROR DETAILS] {error_json}"
+                except:
+                    error_detail = f"\n[ERROR DETAILS] {e.response.text}"
+            print(f"[ERROR] Gemini API Error: {str(e)}{error_detail}")
+            raise
     
     def _call_deepseek(self, prompt: str) -> Dict[str, Any]:
         """Call DeepSeek API."""
