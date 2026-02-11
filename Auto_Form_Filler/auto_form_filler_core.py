@@ -192,6 +192,9 @@ class AutoFormFillerCore:
         chrome_config = self.load_chrome_config()
         if not chrome_config:
             print("❌ Chrome config not found!")
+            print("💡 Make sure chrome_profile.json exists in the parent directory")
+            print("\nPress Enter to close...")
+            input()
             return
         
         debug_port = chrome_config.get('debug_port', 9222)
@@ -200,15 +203,27 @@ class AutoFormFillerCore:
         chrome_options = Options()
         chrome_options.add_experimental_option("debuggerAddress", f"127.0.0.1:{debug_port}")
         
+        print(f"🔌 Attempting to connect to Chrome on port {debug_port}...")
+        print("⏳ Please wait...")
+        
         try:
             self.driver = webdriver.Chrome(options=chrome_options)
             print(f"✅ Connected to Chrome on port {debug_port}")
         except Exception as e:
-            print(f"❌ Chrome connection failed: {e}")
-            print("Make sure Chrome is running with debugging enabled!")
+            print(f"\n❌ Chrome connection failed!")
+            print(f"Error: {e}")
+            print("\n" + "="*60)
+            print("TROUBLESHOOTING:")
+            print("1. Make sure Chrome is running with debugging enabled")
+            print(f"2. Check if port {debug_port} is correct in chrome_profile.json")
+            print("3. Try closing all Chrome windows and restart")
+            print("="*60)
+            print("\nPress Enter to close...")
+            input()
             return
         
         print("\n🔍 Monitoring for Google Forms...")
+        print("💡 Navigate to a Google Form to start auto-filling")
         
         while self.is_active:
             try:
@@ -1039,9 +1054,25 @@ Answers:"""
             print("⚠️ AI Handler: Disabled")
         print("="*60 + "\n")
         
-        self.monitor_forms()
+        try:
+            self.monitor_forms()
+        except Exception as e:
+            print(f"\n❌ CRITICAL ERROR: {e}")
+            import traceback
+            traceback.print_exc()
+            print("\n" + "="*60)
+            print("Press Enter to close...")
+            input()
 
 
 if __name__ == "__main__":
-    filler = AutoFormFillerCore()
-    filler.run()
+    try:
+        filler = AutoFormFillerCore()
+        filler.run()
+    except Exception as e:
+        print(f"\n❌ STARTUP ERROR: {e}")
+        import traceback
+        traceback.print_exc()
+        print("\n" + "="*60)
+        print("Press Enter to close...")
+        input()
