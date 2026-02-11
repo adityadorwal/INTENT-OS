@@ -226,17 +226,19 @@ class FormFillerLauncher:
             print(f"🔌 Connecting to Chrome on port {self.debug_port}...")
             driver = webdriver.Chrome(options=chrome_options)
             
-            # Open URL in new tab
-            print("📂 Opening form in new tab...")
-            driver.execute_script(f"window.open('{url}', '_blank');")
+            # Navigate directly to the URL (don't use window.open)
+            print("📂 Opening form...")
+            driver.get(url)
             
-            # Switch to the new tab
-            driver.switch_to.window(driver.window_handles[-1])
+            # Wait for form to load
+            print("⏳ Waiting for form to load...")
+            time.sleep(2)
             
             print("✅ Form opened successfully!")
             print("🤖 Auto-filling will begin shortly...\n")
             
-            # Don't close driver - let auto_form_filler_core.py handle it
+            # IMPORTANT: Don't quit the driver - keep it alive for the core script
+            # The core script will connect to the same Chrome instance
             return True
             
         except Exception as e:
@@ -327,12 +329,36 @@ class FormFillerLauncher:
                 print("⚠️ Make sure it's in the same directory!")
                 return
             
-            # Start in background
+            # Start in background with proper error handling
             print(f"\n🚀 Starting auto_form_filler_core.py...")
             
+            # Add a small delay to ensure Chrome is ready
+            time.sleep(2)
+            
             if os.name == 'nt':  # Windows
+                # Create a batch file to keep console open on error
+                batch_content = f'''@echo off
+echo Starting Auto Form Filler Core...
+python "{core_path}"
+if errorlevel 1 (
+    echo.
+    echo ========================================
+    echo ERROR: Form filler encountered an error
+    echo ========================================
+    echo.
+    pause
+) else (
+    echo.
+    echo Form filling completed successfully!
+    timeout /t 3
+)
+'''
+                batch_path = os.path.join(os.path.dirname(core_path), "run_core.bat")
+                with open(batch_path, 'w') as f:
+                    f.write(batch_content)
+                
                 subprocess.Popen(
-                    ['python', core_path],
+                    ['cmd', '/c', batch_path],
                     creationflags=subprocess.CREATE_NEW_CONSOLE
                 )
             else:  # Linux/Mac
