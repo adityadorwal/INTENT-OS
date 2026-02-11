@@ -315,8 +315,11 @@ class VoiceWorker(QObject):
         silence_start = None
         
         with sr.Microphone() as source:
-            # Calibrate microphone for ambient noise
-            self.recognizer.adjust_for_ambient_noise(source, duration=0.8)
+            # Calibrate microphone for ambient noise - longer duration for better accuracy
+            print("[INFO] Calibrating microphone for ambient noise...")
+            self.recognizer.adjust_for_ambient_noise(source, duration=1.5)
+            print(f"[INFO] Auto-detected energy threshold: {self.recognizer.energy_threshold}")
+            print("[INFO] Listening...")
             
             while self.is_running:
                 try:
@@ -375,11 +378,11 @@ class FloatingMicButton(QWidget):
         self.drag_start_pos = QPoint()
         self.mouse_press_time = 0
         
-        # Speech recognition
+        # Speech recognition - AUTO-ADAPTIVE (works on any PC/microphone)
         self.recognizer = sr.Recognizer()
-        self.recognizer.energy_threshold = 1200  # Better noise filtering
+        # Removed hardcoded energy_threshold - let it auto-detect for each device
         self.recognizer.pause_threshold = 0.8
-        self.recognizer.dynamic_energy_threshold = True
+        self.recognizer.dynamic_energy_threshold = True  # Auto-adjusts to environment
         
         # Silence timeout (configurable)
         self.silence_timeout = 4.0  # seconds
@@ -443,8 +446,9 @@ class FloatingMicButton(QWidget):
         try:
             mic = sr.Microphone()
             with mic as source:
-                self.recognizer.adjust_for_ambient_noise(source, duration=0.5)
+                self.recognizer.adjust_for_ambient_noise(source, duration=1.5)  # Longer calibration
             print(f"[OK] Microphone working | Language: {self.current_language}")
+            print(f"[INFO] Auto-detected energy threshold: {self.recognizer.energy_threshold}")
         except Exception as e:
             print(f"[ERROR] Microphone test failed: {e}")
             QMessageBox.critical(
