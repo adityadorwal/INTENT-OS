@@ -51,6 +51,24 @@
       "window_pattern": "Screenshot 2026-02-05 223102.png",
       "learned_at": "2026-02-12T01:19:36.931743",
       "confidence": "high"
+    },
+    "pythonw.exe": {
+      "category": "productive",
+      "window_pattern": "pythonw",
+      "learned_at": "2026-02-14T00:22:05.003594",
+      "confidence": "high"
+    },
+    "pythonw.exe_python": {
+      "category": "productive",
+      "window_pattern": "pythonw",
+      "learned_at": "2026-02-14T00:22:05.003594",
+      "confidence": "medium"
+    },
+    "Notepad.exe": {
+      "category": "productive",
+      "window_pattern": "*keys.txt - Notepad",
+      "learned_at": "2026-02-14T02:12:06.351104",
+      "confidence": "high"
     }
   },
   "categories": {
