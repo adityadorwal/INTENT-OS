@@ -8,6 +8,20 @@
 
 ---
 
+## 🎯 New User? Start Here!
+
+**Complete setup in just 3 steps:**
+
+1. **Download** Intent OS and extract
+2. **Double-click** `SETUP.bat` (Windows) or run `python gui_setup.py`
+3. **Follow the GUI wizard** (5-10 minutes)
+
+**That's it!** No CMD, no technical knowledge needed. Everything is automated with a beautiful interface.
+
+📖 **Read:** [NEW_USER_START_HERE.md](NEW_USER_START_HERE.md) for detailed guide
+
+---
+
 ## ✨ Features
 
 ### 🎯 Core Features
@@ -33,50 +47,152 @@
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start - New User Experience
+
+### ⚡ One-Click Setup (Recommended)
+
+**For new users - No technical knowledge needed!**
+
+1. **Download Intent OS** and extract the files
+2. **Double-click `SETUP.bat`** (Windows) or run `python gui_setup.py`
+3. **Follow the beautiful GUI wizard** (5-10 minutes):
+   - ✅ Step 1: System requirements check
+   - ✅ Step 2: Automatic package installation (PyQt5, selenium, etc.)
+   - ✅ Step 3: Enter API keys (visual forms)
+   - ✅ Step 4: Chrome configuration (automatic)
+   - ✅ Step 5: Personal data for forms (optional)
+   - ✅ Step 6: Complete setup and launch!
+4. **Start using voice commands immediately!** 🎤
+
+**That's it! No CMD, no manual configuration, everything automated!**
+
+---
 
 ### Prerequisites
 
-- **Python 3.8 or higher**
+- **Python 3.8 or higher** - [Download here](https://www.python.org/downloads/)
+  - ⚠️ **Important:** Check "Add Python to PATH" during installation!
 - **Internet connection** (for voice recognition and AI)
 - **Microphone** (for voice commands)
-- **API Keys** (at least one):
-  - [Groq](https://console.groq.com/keys) - Recommended (fast & free)
-  - [Google Gemini](https://makersuite.google.com/app/apikey) - Good fallback
-  - [DeepSeek](https://platform.deepseek.com/api_keys) - Alternative
+- **At least one API Key** (free options available):
+  - [Groq](https://console.groq.com/keys) - ⭐ Recommended (fast & free)
+  - [Google Gemini](https://makersuite.google.com/app/apikey) - Good alternative
+  - [DeepSeek](https://platform.deepseek.com/api_keys) - Another option
   - [HuggingFace](https://huggingface.co/settings/tokens) - Alternative
 
-### Installation
+---
+
+### Installation Methods
+
+#### 🎨 Method 1: GUI Setup Wizard (Easiest)
+
+**Perfect for non-technical users:**
+
+```bash
+# Windows:
+Double-click SETUP.bat
+
+# Or run directly:
+python gui_setup.py
+```
+
+**What it does:**
+- ✅ Checks system requirements automatically
+- ✅ Installs ALL packages (no pip commands needed!)
+- ✅ Visual forms for API keys (no file editing!)
+- ✅ Auto-detects Chrome installation
+- ✅ Creates all configuration files
+- ✅ Launches Intent OS when done
+
+**Time:** 5-10 minutes (mostly automated)
+
+**GUI Wizard Steps:**
+
+1. **Requirements Check** - Verifies Python version, internet, permissions, and microphone
+2. **Install Dependencies** - One-click installation of all required packages:
+   - PyQt5 (GUI framework)
+   - selenium (Web automation)
+   - SpeechRecognition (Voice input)
+   - PyAudio (Microphone access)
+   - psutil (System monitoring)
+   - requests (API calls)
+   - python-dotenv (Environment variables)
+   - pyttsx3 (Text-to-speech)
+3. **API Keys Setup** - User-friendly forms to enter:
+   - Groq API Key (recommended)
+   - Google Gemini API Key
+   - DeepSeek API Key
+   - Visual password fields with placeholders
+4. **Chrome Configuration** - Automatic detection and setup:
+   - Finds Chrome installation
+   - Sets up debugging port (9222)
+   - Configures profiles for WhatsApp and form filling
+5. **Form Filler Data** - Optional personal information:
+   - First Name, Last Name
+   - Email Address, Phone Number
+   - Address, City
+   - Stored locally in `Auto_Form_Filler/user_data.json`
+6. **Final Setup** - Automated configuration:
+   - Creates `.env` file with API keys
+   - Generates Chrome configuration
+   - Sets up form filler preferences
+   - Creates `.setup_complete` flag
+   - Option to launch Intent OS immediately
+
+---
+
+#### 🔧 Method 2: Manual Installation
+
+**For developers or advanced users:**
 
 1. **Clone or Download** the repository:
 ```bash
-   git clone https://github.com/adityadorwal/INTENT-OS.git
-   cd INTENT-OS
+git clone https://github.com/adityadorwal/INTENT-OS.git
+cd INTENT-OS
 ```
 
 2. **Install Dependencies**:
 ```bash
-   pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-3. **Run First-Time Setup**:
+3. **Run Setup**:
 ```bash
-   python setup.py
+python setup.py
 ```
-   
-   The setup wizard will guide you through:
-   - API key configuration
-   - Chrome profile setup (optional)
-   - Personal data for form filling (optional)
 
-4. **Run the Application**:
+4. **Start Intent OS**:
 ```bash
-   python run.py
+python run.py
 ```
 
-That's it! A floating microphone button will appear. Click it to start listening! 🎤
+---
 
-**Note:** See [INSTALL.md](INSTALL.md) for detailed installation instructions.
+#### ⚡ Method 3: Quick Fix
+
+**If you have missing packages:**
+
+```bash
+# Install all missing packages automatically:
+python quick_fix.py
+
+# Or manually:
+pip install -r requirements.txt
+```
+
+---
+
+### First Launch
+
+After setup, you'll see:
+- 🎤 **Floating microphone button** (drag it anywhere!)
+- **Left-click** to start/stop listening
+- **Right-click** for menu options
+
+**Try your first command:**
+- Click the microphone
+- Say: "what can you do"
+- Watch Intent OS respond! 🎉
 
 ---
 
@@ -84,19 +200,22 @@ That's it! A floating microphone button will appear. Click it to start listening
 
 ### Basic Usage
 
-1. **Click the microphone button** to start listening (or left-click)
+1. **Click the microphone button** to start listening
 2. **Speak your command** clearly
-3. **Wait for confirmation** (visual + optional audio feedback)
+3. **Wait for confirmation** (visual + audio feedback)
 4. **Command executes automatically**
 
 ### Right-Click Menu
 
 Right-click the microphone button for options:
-- Change language
-- Enter manual command
-- Open settings
-- Toggle Observer tracking
-- Quit application
+- ⚙️ **Settings** - Configure API keys, features, and preferences
+- 📝 **Manual Command Input** - Type instead of speak
+- 📋 **Auto Form Filler** - Fill forms automatically
+- 🤖 **WhatsApp Bot** - WhatsApp automation settings
+- 🔐 **Security** - Security and privacy settings
+- 🌐 **Language Selection** - Change voice recognition language
+- 🔴 **Observation Mode** - Toggle productivity tracking
+- ❌ **Quit Application** - Exit Intent OS
 
 ### Example Commands
 
@@ -132,6 +251,10 @@ Try saying:
 📝 Form Filling
 "start form filling"
 "update my personal info"
+
+❓ Help
+"what can you do"
+"help me"
 ```
 
 ---
@@ -166,6 +289,16 @@ Edit `config.json` for advanced settings:
 }
 ```
 
+### Environment Variables
+
+API keys are stored in `.env` file (created by setup wizard):
+
+```env
+GROQ_API_KEY=gsk_your_key_here
+GEMINI_API_KEY=AIza_your_key_here
+DEEPSEEK_API_KEY=sk_your_key_here
+```
+
 ---
 
 ## 📊 Features in Detail
@@ -183,19 +316,33 @@ Automatically tracks:
 - "check observer status" - View tracking status
 - Toggle via right-click menu
 
+**Dashboard Features**:
+- Real-time activity monitoring
+- Time usage charts and graphs
+- Application categories
+- Productivity scores
+- Export reports
+
 ### Auto Form Filler
 
 Intelligent form filling with:
 - AI-powered field detection
 - Multi-page form support
 - Learning system for new fields
-- Privacy-conscious
+- Privacy-conscious (data stored locally)
 
 **Setup**:
-1. Edit `Auto_Form_Filler/user_data.json` with your info
+1. Configure personal data via GUI wizard or edit `Auto_Form_Filler/user_data.json`
 2. Open Chrome with debugging: `chrome --remote-debugging-port=9222`
 3. Navigate to a form
-4. Say "start form filling"
+4. Say "start form filling" or use right-click menu
+
+**Supported Fields**:
+- Personal information (name, email, phone)
+- Address details
+- Education information
+- Professional information
+- Custom learned fields
 
 ### WhatsApp Automation
 
@@ -209,13 +356,61 @@ Send messages hands-free:
 2. Log into WhatsApp Web
 3. Say "send [contact] as [message]"
 
+**Features**:
+- Send messages to any contact
+- Voice-to-text messaging
+- Automated responses
+- Conversation history
+
 ### File Operations
 
 Voice-controlled file management:
-- **Organize**: Sorts files by type (Images, Documents, etc.)
-- **Compress**: Create ZIP archives
-- **Extract**: Unzip archives
+- **Organize**: Sorts files by type (Images, Documents, Videos, Music, Archives, etc.)
+- **Compress**: Create ZIP archives with custom names
+- **Extract**: Unzip archives to specified locations
 - **Delete**: Safe deletion with confirmation
+
+**Commands**:
+```text
+"organize my downloads"
+"compress project folder"
+"extract archive.zip"
+"delete old files"
+```
+
+### System Control
+
+Control your computer with voice:
+- **Screenshots**: Capture screen or specific windows
+- **Volume**: Set, increase, or decrease volume
+- **Applications**: Open, close, or switch apps
+- **Power**: Lock, sleep, restart, or shutdown
+- **Display**: Change brightness, switch monitors
+
+**Commands**:
+```text
+"take screenshot"
+"set volume to 75"
+"open calculator"
+"lock screen"
+"shutdown computer"
+```
+
+### Web Automation
+
+Browse and search hands-free:
+- **Google Search**: Voice-activated web searches
+- **YouTube**: Play videos by name
+- **Spotify**: Play music and playlists
+- **Website Navigation**: Open any website
+
+**Commands**:
+```text
+"search for AI news"
+"play relaxing music on youtube"
+"play workout playlist on spotify"
+"open github.com"
+```
 
 ---
 
@@ -262,6 +457,10 @@ voice-command-ai/
 ├── file_operations_bridge.py  # File management
 ├── system_commands.py         # System control functions
 ├── audio_feedback.py          # TTS and audio cues
+├── gui_setup.py              # GUI setup wizard
+├── setup.py                   # Command-line setup
+├── run.py                     # Application launcher
+├── quick_fix.py              # Package installer
 │
 ├── Observer/                  # Productivity tracking
 │   ├── tracker.py            # Activity monitoring
@@ -284,8 +483,16 @@ voice-command-ai/
 ├── logs/                      # Application logs
 ├── .env                       # API keys (not in git)
 ├── .gitignore                # Git ignore rules
+├── .setup_complete           # Setup completion flag
 ├── config.json               # Main configuration
-└── requirements.txt          # Python dependencies
+├── chrome_profile.json       # Chrome configuration
+├── requirements.txt          # Python dependencies
+├── SETUP.bat                 # Windows setup launcher
+├── START_HERE.bat           # Windows application launcher
+├── README.md                 # This file
+├── NEW_USER_START_HERE.md   # Beginner's guide
+├── TROUBLESHOOTING.md       # Common issues
+└── LICENSE                   # MIT License
 ```
 
 ---
@@ -299,9 +506,17 @@ voice-command-ai/
 1. Check microphone permissions in OS settings
 2. Verify microphone is set as default device
 3. Run `python -c "import speech_recognition as sr; print(sr.Microphone.list_microphone_names())"`
+4. Restart the application
 
 **Problem**: "No internet connection" error
 **Solution**: Voice recognition requires internet. Check your connection.
+
+**Problem**: Recognition accuracy is poor
+**Solution**:
+1. Speak clearly and at normal speed
+2. Reduce background noise
+3. Try different language settings
+4. Check microphone quality and positioning
 
 ### API Errors
 
@@ -311,6 +526,13 @@ voice-command-ai/
 2. Check API key validity at provider websites
 3. Ensure internet connection is stable
 4. Check logs in `logs/` directory
+5. Try different API provider in settings
+
+**Problem**: "Rate limit exceeded"
+**Solution**:
+1. Wait a few minutes before trying again
+2. Switch to alternative API provider
+3. Check your API usage at provider dashboard
 
 ### Observer Not Starting
 
@@ -321,6 +543,14 @@ voice-command-ai/
    - Windows: `pip install pywin32`
    - Linux: `sudo apt-get install gir1.2-wnck-3.0`
 3. Check logs in `logs/observer.log`
+4. Restart with admin/sudo privileges
+
+**Problem**: Dashboard not loading
+**Solution**:
+1. Check if port 5000 is available
+2. Try accessing `http://localhost:5000`
+3. Check firewall settings
+4. Review server logs
 
 ### File Operations Failed
 
@@ -329,6 +559,37 @@ voice-command-ai/
 1. Run with appropriate permissions
 2. Check file/folder isn't in use
 3. Verify write permissions on target directory
+4. Close any applications using the files
+
+**Problem**: File organization not working
+**Solution**:
+1. Ensure target directory exists
+2. Check disk space
+3. Verify file types are supported
+4. Review logs for specific errors
+
+### Setup Wizard Issues
+
+**Problem**: Package installation fails
+**Solution**:
+1. Check internet connection
+2. Run as administrator (Windows) or with sudo (Linux/Mac)
+3. Update pip: `python -m pip install --upgrade pip`
+4. Install packages manually: `pip install -r requirements.txt`
+
+**Problem**: Chrome not detected
+**Solution**:
+1. Install Google Chrome if not present
+2. Check installation in standard locations
+3. Manually configure chrome_profile.json
+4. Use alternative browser for basic features
+
+**Problem**: GUI wizard crashes
+**Solution**:
+1. Check Python version (3.8+ required)
+2. Install tkinter: `pip install tk`
+3. Run setup.py instead: `python setup.py`
+4. Check logs for error details
 
 ### More Help
 
@@ -365,6 +626,14 @@ black .
 flake8 .
 ```
 
+### Code Style
+
+- Follow PEP 8 guidelines
+- Use black for formatting
+- Add docstrings to functions
+- Write tests for new features
+- Update documentation
+
 ---
 
 ## 📝 License
@@ -378,6 +647,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Google Speech Recognition** for voice input
 - **Groq, Gemini, DeepSeek** for AI capabilities
 - **PyQt5** for the beautiful UI
+- **Selenium** for web automation
 - **All contributors** who helped make this project better
 
 ---
@@ -391,7 +661,7 @@ If you find this project useful, please consider giving it a ⭐ star!
 ## 📧 Contact
 
 - **GitHub**: [Create an Issue](https://github.com/adityadorwal/INTENT-OS/issues)
-- **Project Link**: [https://github.com/dorwaladitya/voice-command-ai](https://github.com/adityadorwal/INTENT-OS)
+- **Project Link**: [https://github.com/adityadorwal/INTENT-OS](https://github.com/adityadorwal/INTENT-OS)
 
 ---
 
@@ -403,6 +673,9 @@ If you find this project useful, please consider giving it a ⭐ star!
 - ✅ File operations
 - ✅ Productivity tracking
 - ✅ WhatsApp automation
+- ✅ GUI setup wizard
+- ✅ Auto form filler
+- ✅ System control
 
 ### Version 2.0 (Planned)
 - 🔜 Offline voice recognition
@@ -412,6 +685,19 @@ If you find this project useful, please consider giving it a ⭐ star!
 - 🔜 Mobile companion app
 - 🔜 Natural language improvements
 - 🔜 More automation integrations
+- 🔜 Multi-user support
+- 🔜 Advanced scheduling
+- 🔜 Voice macros
+
+---
+
+## 📚 Additional Documentation
+
+- **[NEW_USER_START_HERE.md](NEW_USER_START_HERE.md)** - Comprehensive beginner's guide
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
+- **[INSTALL.md](INSTALL.md)** - Detailed installation instructions
+- **[API_GUIDE.md](API_GUIDE.md)** - API integration guide
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
 
 ---
 
