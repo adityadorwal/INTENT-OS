@@ -1,0 +1,21 @@
+# Intent OS - Minimal Requirements
+# Just the essential packages for basic functionality
+
+# Core GUI and Voice
+PyQt5>=5.15.9
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.11
+
+# AI Processing
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# System Integration
+psutil>=5.9.6
+
+# Basic Notifications
+plyer>=2.1.0
+
+# Optional but recommended
+pyttsx3>=2.90
+colorama>=0.4.6

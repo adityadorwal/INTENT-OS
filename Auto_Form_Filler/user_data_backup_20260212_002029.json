@@ -1,0 +1,37 @@
+{
+  "personal_info": {
+    "full_name": "Aakriti",
+    "first_name": "Aakriti",
+    "last_name": "d",
+    "email": "kritikasahani03@gmail.com",
+    "phone": "6392716739",
+    "date_of_birth": "21-08-2004",
+    "gender": "Female",
+    "address": "greeno",
+    "city": "greeno",
+    "state": "UP",
+    "country": "India",
+    "zip_code": "201310",
+    "nationality": "India"
+  },
+  "education": {
+    "highest_degree": "Btehc",
+    "institution": "kcc",
+    "major": "CS",
+    "graduation_year": "2026",
+    "gpa": "8"
+  },
+  "professional": {
+    "occupation": "Student",
+    "company": "NA",
+    "job_title": "NA",
+    "years_of_experience": "0",
+    "industry": "IT"
+  },
+  "learned_questions": {},
+  "preferences": {
+    "auto_fill_enabled": true,
+    "confirmation_required": false,
+    "learn_new_questions": true
+  }
+}

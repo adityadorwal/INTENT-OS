@@ -1,90 +1,133 @@
 {
-    "database_path": "productivity_data.db",
-    "check_interval_seconds": 2,
-    "ai_config": {
-        "enabled": false,
-        "api_endpoint": "",
-        "api_key": "",
-        "model": "claude-sonnet-4-20250514",
-        "use_case": "smart_categorization",
-        "note": "Set enabled to true and provide your API details when you want AI-powered categorization"
+  "database_path": "productivity_data.db",
+  "check_interval_seconds": 2,
+  "ai_config": {
+    "enabled": false,
+    "api_endpoint": "",
+    "api_key": "",
+    "model": "claude-sonnet-4-20250514",
+    "use_case": "smart_categorization",
+    "note": "Set enabled to true and provide your API details when you want AI-powered categorization"
+  },
+  "ai_learned_categories": {
+    "python.exe": {
+      "category": "productive",
+      "window_pattern": "Settings - Voice Command System",
+      "learned_at": "2026-02-11T15:23:07.798112",
+      "confidence": "high"
     },
-    "ai_learned_categories": {},
-    "categories": {
-        "productive": [
-            "vscode",
-            "pycharm",
-            "terminal",
-            "cmd",
-            "sublime",
-            "code",
-            "vim",
-            "emacs",
-            "intellij",
-            "eclipse",
-            "jupyter",
-            "rstudio"
-        ],
-        "communication": [
-            "slack",
-            "teams",
-            "discord",
-            "whatsapp",
-            "telegram",
-            "zoom",
-            "skype",
-            "outlook",
-            "thunderbird",
-            "mail"
-        ],
-        "browsing": [
-            "chrome",
-            "firefox",
-            "safari",
-            "edge",
-            "brave",
-            "opera"
-        ],
-        "entertainment": [
-            "youtube",
-            "netflix",
-            "spotify",
-            "steam",
-            "game",
-            "vlc",
-            "music"
-        ],
-        "design": [
-            "photoshop",
-            "illustrator",
-            "figma",
-            "sketch",
-            "canva",
-            "gimp"
-        ],
-        "documents": [
-            "word",
-            "excel",
-            "powerpoint",
-            "libreoffice",
-            "notion",
-            "obsidian",
-            "evernote"
-        ]
+    "Kiro.exe": {
+      "category": "productive",
+      "window_pattern": ".env - INTENT-OS-main - Kiro",
+      "learned_at": "2026-02-11T15:28:04.424708",
+      "confidence": "high"
     },
-    "productivity_rules": {
-        "note": "Define which categories count as productive",
-        "productive_categories": [
-            "productive",
-            "design",
-            "documents"
-        ],
-        "neutral_categories": [
-            "communication",
-            "browsing"
-        ],
-        "unproductive_categories": [
-            "entertainment"
-        ]
+    "explorer.exe": {
+      "category": "productive",
+      "window_pattern": "Task View",
+      "learned_at": "2026-02-11T15:32:56.539748",
+      "confidence": "high"
+    },
+    "SearchHost.exe": {
+      "category": "browsing",
+      "window_pattern": "Search",
+      "learned_at": "2026-02-11T16:28:52.008466",
+      "confidence": "high"
+    },
+    "StartMenuExperienceHost.exe": {
+      "category": "others",
+      "window_pattern": "Start",
+      "learned_at": "2026-02-11T16:28:54.735427",
+      "confidence": "high"
+    },
+    "ShellExperienceHost.exe": {
+      "category": "others",
+      "window_pattern": "New notification",
+      "learned_at": "2026-02-11T23:51:43.072402",
+      "confidence": "high"
+    },
+    "Photos.exe": {
+      "category": "design",
+      "window_pattern": "Screenshot 2026-02-05 223102.png",
+      "learned_at": "2026-02-12T01:19:36.931743",
+      "confidence": "high"
     }
+  },
+  "categories": {
+    "productive": [
+      "vscode",
+      "pycharm",
+      "terminal",
+      "cmd",
+      "sublime",
+      "code",
+      "vim",
+      "emacs",
+      "intellij",
+      "eclipse",
+      "jupyter",
+      "rstudio"
+    ],
+    "communication": [
+      "slack",
+      "teams",
+      "discord",
+      "whatsapp",
+      "telegram",
+      "zoom",
+      "skype",
+      "outlook",
+      "thunderbird",
+      "mail"
+    ],
+    "browsing": [
+      "chrome",
+      "firefox",
+      "safari",
+      "edge",
+      "brave",
+      "opera"
+    ],
+    "entertainment": [
+      "youtube",
+      "netflix",
+      "spotify",
+      "steam",
+      "game",
+      "vlc",
+      "music"
+    ],
+    "design": [
+      "photoshop",
+      "illustrator",
+      "figma",
+      "sketch",
+      "canva",
+      "gimp"
+    ],
+    "documents": [
+      "word",
+      "excel",
+      "powerpoint",
+      "libreoffice",
+      "notion",
+      "obsidian",
+      "evernote"
+    ]
+  },
+  "productivity_rules": {
+    "note": "Define which categories count as productive",
+    "productive_categories": [
+      "productive",
+      "design",
+      "documents"
+    ],
+    "neutral_categories": [
+      "communication",
+      "browsing"
+    ],
+    "unproductive_categories": [
+      "entertainment"
+    ]
+  }
 }

@@ -1,41 +1,101 @@
-# Voice Command Background App - Complete Dependencies
+# Intent OS - Complete Dependencies
+# All packages needed for full functionality
+
+# ============================================
+# CORE DEPENDENCIES (Required)
+# ============================================
 
 # GUI Framework
-PyQt5==5.15.9
+PyQt5>=5.15.9
 
-# Online Speech Recognition (Google)
-SpeechRecognition==3.10.0
+# Voice Recognition
+SpeechRecognition>=3.10.0
 
-# Audio input backend (version not pinned to allow platform compatibility)
-pyaudio
+# Audio Input (Microphone)
+PyAudio>=0.2.11
 
+# Web Automation (Form Filling, WhatsApp)
+selenium>=4.15.0
+webdriver-manager>=4.0.1
 
-# Web Automation (WhatsApp, Forms, etc.)
-selenium==4.15.2
-webdriver-manager==4.0.1
+# Process Management & System Info
+psutil>=5.9.6
 
-# Process Management
-psutil==5.9.6
+# HTTP Requests
+requests>=2.31.0
 
-# AI APIs
-google-generativeai==0.3.1
-groq==0.4.1
-requests==2.31.0
+# Environment Variables
+python-dotenv>=1.0.0
 
-# Observer Dashboard
-flask==3.0.0
+# ============================================
+# AI & API INTEGRATIONS
+# ============================================
 
-# Configuration
-python-dotenv==1.0.0
+# Google Gemini API
+google-generativeai>=0.3.1
 
-# Phase 4: Notifications and Audio Feedback
-# Cross-platform desktop notifications
-win10toast==0.9; sys_platform == 'win32'
-pync==2.0.3; sys_platform == 'darwin'
-plyer==2.1.0
+# Groq API (Fast & Free)
+groq>=0.4.1
 
-# Text-to-Speech (optional for audio feedback)
-pyttsx3==2.90
+# DeepSeek API (Alternative)
+# Note: DeepSeek uses standard requests, no special package needed
 
-# Optional but recommended
-colorama==0.4.6
+# ============================================
+# PRODUCTIVITY & MONITORING
+# ============================================
+
+# Observer Dashboard (Web Interface)
+flask>=3.0.0
+
+# ============================================
+# USER EXPERIENCE
+# ============================================
+
+# Text-to-Speech (Voice Responses)
+pyttsx3>=2.90
+
+# Cross-platform Desktop Notifications
+win10toast>=0.9; sys_platform == 'win32'
+pync>=2.0.3; sys_platform == 'darwin'
+plyer>=2.1.0
+
+# Terminal Colors (Better Console Output)
+colorama>=0.4.6
+
+# ============================================
+# OPTIONAL ENHANCEMENTS
+# ============================================
+
+# Windows-specific enhancements
+pywin32>=306; sys_platform == 'win32'
+
+# JSON handling (usually built-in, but explicit for clarity)
+# json - built into Python
+
+# File operations (built-in)
+# pathlib - built into Python 3.4+
+
+# Threading (built-in)
+# threading - built into Python
+
+# ============================================
+# DEVELOPMENT & TESTING (Optional)
+# ============================================
+
+# Uncomment these for development:
+# pytest>=7.0.0
+# black>=23.0.0
+# flake8>=6.0.0
+
+# ============================================
+# INSTALLATION NOTES
+# ============================================
+
+# For automatic installation, run:
+# pip install -r requirements.txt
+
+# Or use the GUI setup wizard:
+# python gui_setup.py
+
+# For quick fix of missing packages:
+# python quick_fix.py
