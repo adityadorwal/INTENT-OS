@@ -17,7 +17,7 @@ class IntentOSSetup:
     def __init__(self):
         self.root = Tk()
         self.root.title("Intent OS - Setup Wizard")
-        self.root.geometry("900x700")  # Made taller to show all buttons
+        self.root.geometry("900x700")  
         self.root.resizable(False, False)
         
         # Center window

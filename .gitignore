@@ -306,3 +306,6 @@ test_output/
 test_data/
 
 **/whatsapp_api_config.json
+
+SETUP_REAL_TRACKING.py
+REFRESH_TODAY_DATA.py

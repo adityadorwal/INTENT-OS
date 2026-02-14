@@ -69,6 +69,12 @@
       "window_pattern": "*keys.txt - Notepad",
       "learned_at": "2026-02-14T02:12:06.351104",
       "confidence": "high"
+    },
+    "Unknown": {
+      "category": "others",
+      "window_pattern": "",
+      "learned_at": "2026-02-14T02:25:14.865072",
+      "confidence": "high"
     }
   },
   "categories": {

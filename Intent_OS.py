@@ -296,11 +296,35 @@ class IntentOS:
             # Start Observer server if not running
             if not self.observer_server_running:
                 self._start_observer_server()
-                time.sleep(2)  # Give server time to start
+                # Wait for server to become reachable (retry)
+                import socket
+                host = '127.0.0.1'
+                port = 8000
+                retries = 10
+                delay = 0.3
+                ok = False
+                for _ in range(retries):
+                    try:
+                        with socket.create_connection((host, port), timeout=1):
+                            ok = True
+                            break
+                    except Exception:
+                        time.sleep(delay)
+
+                if not ok:
+                    print("[WARNING] Observer server did not respond in time")
             
-            # Open dashboard in browser
-            webbrowser.open("http://localhost:8000/dashboard.html")
-            print("✅ Dashboard opened in browser")
+            # Open dashboard in browser (use os.startfile on Windows for reliability)
+            try:
+                if os.name == 'nt':
+                    os.startfile("http://localhost:8000/dashboard.html")
+                else:
+                    webbrowser.open("http://localhost:8000/dashboard.html")
+                print("Dashboard opened in browser")
+            except Exception:
+                # Fallback to webbrowser
+                webbrowser.open("http://localhost:8000/dashboard.html")
+                print("Dashboard opened (fallback)")
             
         except Exception as e:
             print(f"❌ Failed to open dashboard: {e}")
@@ -318,9 +342,20 @@ class IntentOS:
                 # Navigate to Observer directory and start tracker
                 observer_script = Path("Observer") / "tracker.py"
                 if observer_script.exists():
-                    subprocess.Popen(["python", str(observer_script)], cwd="Observer")
-                    self.observer_tracker_running = True
-                    print("✅ Observer tracking started")
+                    # Start tracker hidden on Windows using pythonw
+                    try:
+                        if os.name == 'nt':
+                            pythonw = sys.executable.replace('python.exe', 'pythonw.exe')
+                            if not os.path.exists(pythonw):
+                                pythonw = sys.executable
+                            subprocess.Popen([pythonw, str(observer_script)], cwd=str(Path('Observer')))
+                        else:
+                            subprocess.Popen([sys.executable, str(observer_script)], cwd=str(Path('Observer')))
+
+                        self.observer_tracker_running = True
+                        print("Observer tracking started")
+                    except Exception as e:
+                        print(f"Failed to start observer tracker: {e}")
                 else:
                     print("❌ Observer tracker.py not found")
             else:
@@ -345,12 +380,35 @@ class IntentOS:
             server_script = observer_dir / "server.py"
             
             if server_script.exists():
-                subprocess.Popen(
-                    [sys.executable, str(server_script)],
-                    cwd=str(observer_dir)
-                )
+                # Start server detached and redirect output to a log file
+                log_file = observer_dir / "server.log"
+                # Ensure parent exists
+                observer_dir.mkdir(parents=True, exist_ok=True)
+
+                if os.name == 'nt':
+                    # Windows: detach process
+                    DETACHED_PROCESS = 0x00000008
+                    CREATE_NEW_PROCESS_GROUP = 0x00000200
+                    with open(log_file, 'a', encoding='utf-8') as lf:
+                        subprocess.Popen(
+                            [sys.executable, str(server_script)],
+                            cwd=str(observer_dir),
+                            stdout=lf,
+                            stderr=lf,
+                            creationflags=DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP
+                        )
+                else:
+                    with open(log_file, 'a', encoding='utf-8') as lf:
+                        subprocess.Popen(
+                            [sys.executable, str(server_script)],
+                            cwd=str(observer_dir),
+                            stdout=lf,
+                            stderr=lf,
+                            preexec_fn=os.setsid
+                        )
+
                 self.observer_server_running = True
-                print("✅ Observer server started")
+                print(f"✅ Observer server started (logs: {log_file})")
             else:
                 print(f"❌ Observer server.py not found at: {server_script}")
                 

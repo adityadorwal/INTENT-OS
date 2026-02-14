@@ -1326,20 +1326,25 @@ Keep your PIN secure!
             try:
                 # Start tracker.py as independent background process
                 if os.name == 'nt':  # Windows
+                    # Prefer pythonw.exe to start tracker hidden (no console window)
+                    import subprocess
                     pythonw_path = sys.executable.replace('python.exe', 'pythonw.exe')
                     if not os.path.exists(pythonw_path):
                         pythonw_path = sys.executable
-                    
-                    # Use CREATE_NEW_PROCESS_GROUP to allow clean termination
-                    import subprocess
+
                     DETACHED_PROCESS = 0x00000008
-                    CREATE_NEW_PROCESS_GROUP = 0x00000200
-                    
-                    subprocess.Popen(
-                        [pythonw_path, tracker_path],
-                        creationflags=DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP,
-                        cwd=observer_dir
-                    )
+                    try:
+                        subprocess.Popen(
+                            [pythonw_path, tracker_path],
+                            cwd=observer_dir,
+                            stdout=subprocess.DEVNULL,
+                            stderr=subprocess.DEVNULL,
+                            creationflags=DETACHED_PROCESS
+                        )
+                    except Exception:
+                        # Fallback to START if pythonw fails
+                        cmd = f'START /B "" "{pythonw_path}" "{tracker_path}"'
+                        subprocess.Popen(cmd, shell=True, cwd=observer_dir)
                 else:  # Linux/Mac
                     subprocess.Popen(
                         [sys.executable, tracker_path],
